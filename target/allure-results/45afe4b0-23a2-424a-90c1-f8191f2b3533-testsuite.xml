@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1446816849692" stop="1446816866942" version="1.4.16" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Custom suite : online-calculator-tests</name>
+    <title>Custom suite : online-calculator-tests</title>
+    <test-cases>
+        <test-case start="1446816849780" stop="1446816856635" status="passed">
+            <name>openPage</name>
+            <title>Open page</title>
+            <description type="text">Check that we can open page with Online Calculator</description>
+            <steps/>
+            <attachments>
+                <attachment title="Open page" source="2d8d0b72-3a50-4d5f-b836-7ad396e0c7c5-attachment.txt" type="text/plain"/>
+                <attachment title="The page was opened successfully" source="9363e351-5254-4550-baa2-7b4a6d3ebfec-attachment.txt" type="text/plain"/>
+                <attachment title="Main screen" source="82d7edb8-fab1-4c05-93fd-929cb851b62f-attachment.png" type="image/png"/>
+            </attachments>
+            <labels>
+                <label name="severity" value="blocker"/>
+                <label name="feature" value="UI feature"/>
+                <label name="host" value="JmanJ-PK"/>
+                <label name="thread" value="5560@JmanJ-PK.main(1)"/>
+            </labels>
+        </test-case>
+        <test-case start="1446816856677" stop="1446816862531" status="passed">
+            <name>calculateExpression</name>
+            <title>Calculate some expression</title>
+            <description type="text">Check that Online Calculator right calculates some expression (input case - keyboard)</description>
+            <steps/>
+            <attachments>
+                <attachment title="Main screen" source="fe9ffcca-d475-439b-8ad9-27678a3d960b-attachment.png" type="image/png"/>
+                <attachment title="The expression is typed" source="f73ba9f6-2399-4e6e-bd64-85c3f29dcc47-attachment.png" type="image/png"/>
+                <attachment title="Result" source="0881f443-3d3e-4a2b-8725-694105296853-attachment.png" type="image/png"/>
+            </attachments>
+            <labels>
+                <label name="severity" value="critical"/>
+                <label name="feature" value="UI feature"/>
+                <label name="feature" value="Subtraction"/>
+                <label name="feature" value="Addition"/>
+                <label name="feature" value="Multiplication"/>
+                <label name="feature" value="Division"/>
+                <label name="host" value="JmanJ-PK"/>
+                <label name="thread" value="5560@JmanJ-PK.main(1)"/>
+            </labels>
+        </test-case>
+        <test-case start="1446816862549" stop="1446816866939" status="failed">
+            <name>calculateFloatExpression</name>
+            <title>Calculate some float expression</title>
+            <description type="text">Check that Online Calculator right calculates some float expression (input case - keyboard)</description>
+            <failure>
+                <message>AssertionError: expected [-0.28094] but found [-0.28093999999999997]</message>
+                <stack-trace>java.lang.AssertionError: expected [-0.28094] but found [-0.28093999999999997]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertEquals(Assert.java:123)
+	at org.testng.Assert.assertEquals(Assert.java:176)
+	at org.testng.Assert.assertEquals(Assert.java:186)
+	at ru.nsu.fit.tests.AcceptanceTest.calculateFloatExpression(AcceptanceTest.java:64)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:125)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140)
+</stack-trace>
+            </failure>
+            <steps/>
+            <attachments>
+                <attachment title="Main screen" source="3c6d31a1-30d2-448e-8bb8-0dac7c848fff-attachment.png" type="image/png"/>
+                <attachment title="The expression is typed" source="d9fad520-3c78-4988-bd62-8bc0f8ef3623-attachment.png" type="image/png"/>
+                <attachment title="Result" source="414f8db6-fa79-4838-a483-f5e7f803d7e8-attachment.png" type="image/png"/>
+            </attachments>
+            <labels>
+                <label name="severity" value="critical"/>
+                <label name="feature" value="UI feature"/>
+                <label name="feature" value="Addition"/>
+                <label name="host" value="JmanJ-PK"/>
+                <label name="thread" value="5560@JmanJ-PK.main(1)"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="framework" value="TestNG"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>
