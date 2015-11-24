@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class Browser implements Closeable {
     private WebDriver webDriver;
     private static ChromeDriverService service;
+    private By inputElement;
 
     public Browser() {
         // create profile
@@ -26,10 +27,10 @@ public class Browser implements Closeable {
 
         // create web driver
 
-        System.setProperty("webdriver.chrome.driver", "D:\\JavaProjects\\TestProj\\online_calculator_tests");
+        System.setProperty("webdriver.chrome.driver", "C:\\verman");
         try {
             service = new ChromeDriverService.Builder()
-                    .usingDriverExecutable(new File("D:\\JavaProjects\\TestProj\\online_calculator_tests\\chromedriver.exe"))
+                    .usingDriverExecutable(new File("C:\\verman\\chromedriver.exe"))
                     .usingAnyFreePort()
                     .build();
             webDriver = new ChromeDriver(service);
@@ -87,6 +88,22 @@ public class Browser implements Closeable {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
+    }
+
+    public void setInputElement(By inputElement){
+        this.inputElement = inputElement;
+    }
+
+    public void klick_imitation(By elemnt){
+        click(elemnt);
+    }
+
+    public String get_value(){
+        return getValue(inputElement);
+    }
+
+    public void insert_value(String value){
+        typeText(inputElement, value);
     }
 
     @Override

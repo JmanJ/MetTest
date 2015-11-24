@@ -3,6 +3,8 @@ package ru.nsu.fit.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import ru.nsu.fit.services.browser.Browser;
+import ru.nsu.fit.services.browser.MainPageService;
 import ru.yandex.qatools.allure.annotations.Description;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Severity;
@@ -10,7 +12,7 @@ import ru.yandex.qatools.allure.annotations.Title;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
 @Title("Housewife counts the amount of the check")
-public class CalculateCheck extends MainPageTest {
+public class CalculateCheckTest {
 
     @Test()
     @Title("Get total sum by product")
@@ -18,13 +20,13 @@ public class CalculateCheck extends MainPageTest {
     @Severity(SeverityLevel.CRITICAL)
     @Features({"UI feature", "Multiplication "})
     public void calcSumByProduct() {
-        start_test();
-        makeScreen("Main screen");
-        insert_value("6 * 305.43");
-        makeScreen("The expression is typed");
-        klick_imitation();
-        makeScreen("Result");
-        Assert.assertEquals(get_value(), "1832.58");
+        Browser b = MainPageService.start_test();
+        MainPageService.makeScreen("Main screen");
+        b.insert_value("6 * 305.43");
+        MainPageService.makeScreen("The expression is typed");
+        b.klick_imitation(MainPageService.equalElement);
+        MainPageService.makeScreen("Result");
+        Assert.assertEquals(b.get_value(), "1832.58");
     }
 
     @Test(dependsOnMethods = "calcSumByProduct")
@@ -34,12 +36,12 @@ public class CalculateCheck extends MainPageTest {
     @Severity(SeverityLevel.CRITICAL)
     @Features({"UI feature", "Addition"})
     public void calcTotalProductsSum() {
-        start_test();
-        makeScreen("Main screen");
-        insert_value("1832.58 + 500");
-        makeScreen("The expression is typed");
-        klick_imitation();
-        makeScreen("Result");
-        Assert.assertEquals(get_value(), "2332.58");
+        Browser b = MainPageService.start_test();
+        MainPageService.makeScreen("Main screen");
+        b.insert_value("1832.58 + 500");
+        MainPageService.makeScreen("The expression is typed");
+        b.klick_imitation(MainPageService.equalElement);
+        MainPageService.makeScreen("Result");
+        Assert.assertEquals(b.get_value(), "2332.58");
     }
 }

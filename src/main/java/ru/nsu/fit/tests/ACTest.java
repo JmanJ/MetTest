@@ -3,11 +3,13 @@ package ru.nsu.fit.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
+import ru.nsu.fit.services.browser.Browser;
+import ru.nsu.fit.services.browser.MainPageService;
 import ru.yandex.qatools.allure.annotations.*;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
 @Title("Acceptance test")
-public class ACTest extends MainPageTest {
+public class ACTest{
 
     @Test()
     @Title("Calculate the sum of the two numbers")
@@ -15,13 +17,13 @@ public class ACTest extends MainPageTest {
     @Severity(SeverityLevel.BLOCKER)
     @Features({"UI feature", "Addition"})
     public void testSum(){
-        start_test();
-        makeScreen("Main screen");
-        insert_value("6 + 3");
-        makeScreen("The expression is typed");
-        klick_imitation();
-        makeScreen("Result");
-        Assert.assertEquals(get_value(), "9");
+        Browser b = MainPageService.start_test();
+        MainPageService.makeScreen("Main screen");
+        b.insert_value("6 + 3");
+        MainPageService.makeScreen("The expression is typed");
+        b.klick_imitation(MainPageService.equalElement);
+        MainPageService.makeScreen("Result");
+        Assert.assertEquals(b.get_value(), "9");
     }
 
     @Test()
@@ -30,13 +32,13 @@ public class ACTest extends MainPageTest {
     @Severity(SeverityLevel.BLOCKER)
     @Features({"UI feature", "Multiplication"})
     public void testMul(){
-        start_test();
-        makeScreen("Main screen");
-        insert_value("6 * 3");
-        makeScreen("The expression is typed");
-        klick_imitation();
-        makeScreen("Result");
-        Assert.assertEquals(get_value(), "18");
+        Browser b = MainPageService.start_test();
+        MainPageService.makeScreen("Main screen");
+        b.insert_value("6 * 3");
+        MainPageService.makeScreen("The expression is typed");
+        b.klick_imitation(MainPageService.equalElement);
+        MainPageService.makeScreen("Result");
+        Assert.assertEquals(b.get_value(), "18");
     }
 
     @Test()
@@ -45,13 +47,13 @@ public class ACTest extends MainPageTest {
     @Severity(SeverityLevel.BLOCKER)
     @Features({"UI feature", "Subtraction"})
     public void testSub(){
-        start_test();
-        makeScreen("Main screen");
-        insert_value("6 - 3");
-        makeScreen("The expression is typed");
-        klick_imitation();
-        makeScreen("Result");
-        Assert.assertEquals(get_value(), "3");
+        Browser b = MainPageService.start_test();
+        MainPageService.makeScreen("Main screen");
+        b.insert_value("6 - 3");
+        MainPageService.makeScreen("The expression is typed");
+        b.klick_imitation(MainPageService.equalElement);
+        MainPageService.makeScreen("Result");
+        Assert.assertEquals(b.get_value(), "3");
     }
 
     @Test()
@@ -60,12 +62,12 @@ public class ACTest extends MainPageTest {
     @Severity(SeverityLevel.BLOCKER)
     @Features({"UI feature", "Division"})
     public void testDiv(){
-        start_test();
-        makeScreen("Main screen");
-        insert_value("6 / 3");
-        makeScreen("The expression is typed");
-        klick_imitation();
-        makeScreen("Result");
-        Assert.assertEquals(get_value(), "2");
+        Browser b = MainPageService.start_test();
+        MainPageService.makeScreen("Main screen");
+        b.insert_value("6 / 3");
+        MainPageService.makeScreen("The expression is typed");
+        b.klick_imitation(MainPageService.equalElement);
+        MainPageService.makeScreen("Result");
+        Assert.assertEquals(b.get_value(), "2");
     }
 }
